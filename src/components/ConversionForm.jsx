@@ -69,7 +69,8 @@ const ConversionForm = () => {
       setExchangeRate(data.conversion_rate);
       const swappedConvertedAmount = amount * data.conversion_rate;
       setConvertedAmount(swappedConvertedAmount);
-      setResult(`${amount} ${toCurrency} = ${swappedConvertedAmount} ${fromCurrency}`);
+      setResult(`${amount} ${toCurrency} = ${swappedConvertedAmount} ${fromCurrency}`)
+
     };
     
 
@@ -95,14 +96,14 @@ const ConversionForm = () => {
       <AmountInput value={amount} handleAmountChange={handleAmountChange} />
 
       <div className="flex items-center justify-between">
-        <CurrencyDropdown
-          label="From"
-          id="from"
-          imgSrc={fromFlag}
-          defaultValue={fromCurrency}
-          countryList={CountryList}
-          handleInputChange={handleInputChange}
-        />
+      <CurrencyDropdown
+      label="From"
+      id="from"
+      imgSrc={fromFlag}
+      value={fromCurrency}
+      countryList={CountryList}
+      handleInputChange={handleInputChange}
+    />
 
         <FontAwesomeIcon
           icon={faArrowRightArrowLeft}
@@ -110,14 +111,14 @@ const ConversionForm = () => {
           onClick={handleSwapCurrencies}
         />
 
-        <CurrencyDropdown
-          label="To"
-          id="to"
-          imgSrc={toFlag}
-          defaultValue={toCurrency}
-          countryList={CountryList}
-          handleInputChange={handleInputChange}
-        />
+    <CurrencyDropdown
+      label="To"
+      id="to"
+      imgSrc={toFlag}
+      value={toCurrency}
+      countryList={CountryList}
+      handleInputChange={handleInputChange}
+    />
       </div>
 
       <ConversionResult result={result} />
